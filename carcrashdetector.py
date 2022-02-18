@@ -92,7 +92,7 @@ class CarCrashDetector:
     def predict_stream(self):
         """ Read from buffer and predict"""
         tfmodel_inputs_queue = Queue()
-        chunks_to_load = 128000 / self.chunk_len
+        chunks_to_load = int(128000 / self.chunk_len)
         history_len = 25
         history = "_"*history_len
         while True:
